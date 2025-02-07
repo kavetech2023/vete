@@ -207,26 +207,25 @@
 }
 
 .match-teams {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   gap: 20px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 @media (max-width: 992px) {
   .match-teams {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
   }
   
-  .team {
+  .team:first-child,
+  .team:last-child {
     justify-content: center;
   }
   
   .odds-container {
     order: -1;
-    justify-content: center;
+    margin: 1rem 0;
   }
 }
 
@@ -237,6 +236,15 @@
   min-width: 150px;
 }
 
+.team:first-child {
+  justify-content: flex-end;
+}
+
+.team:last-child {
+  justify-content: flex-start;
+}
+
+
 .team-logo {
   width: 24px;
   height: 24px;
@@ -245,19 +253,23 @@
 }
 
 .odds-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  flex-wrap: wrap;
+  min-width: 280px;
 }
 
 .odd-box {
   background-color: var(--background-secondary);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
-  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .odd-box:hover {
@@ -316,4 +328,31 @@
 .event-info {
   font-size: 0.9rem;
   color: var(--text-secondary);
+}
+.odd-box.selected {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+.odd-box.selected .odd-label {
+  color: var(--text-primary);
+}
+
+.odd-box {
+  background-color: var(--background-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  min-width: 80px;
+}
+
+.odd-box:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-primary);
+}
+
+.odd-box:hover .odd-label {
+  color: var(--text-primary);
 }

@@ -16,7 +16,7 @@ function Header() {
             <FaBell />
           </button>
           <button className="btn btn-primary">
-            <FaUser /> Sign In
+            <FaUser /> Sign In / Register
           </button>
         </nav>
       </div>
