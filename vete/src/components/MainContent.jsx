@@ -20,6 +20,7 @@ function MainContent() {
           '1': (Math.random() * 2 + 1.1).toFixed(2),
           'X': (Math.random() * 2 + 2.1).toFixed(2),
           '2': (Math.random() * 2 + 1.1).toFixed(2)
+
         };
       });
       
@@ -42,6 +43,8 @@ function MainContent() {
     });
   };
   
+  //this function is called when the user clicks on an odd box
+
 
   const handleOddSelection = (matchId, oddType, oddValue) => {
     setSelectedOdds(prevOdds => {
